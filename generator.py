@@ -4,10 +4,10 @@ import pandas as pd
 # Gera testes de entrada para o programa em .xlsx
 
 #Parametros para criação dos valores
-values = ['1','2','3','+','-']   #Caracteres usados
-numValuesList =  100             #Numero de testes 
-sizeMin = 5                      #Tamanho minimo de cada teste
-sizeMax = 8                      #Tamanho maximo de cada teste   
+values = ['+', '-', '*', '/', '(', ')', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']   #Caracteres usados
+numValuesList =  10000               #Numero de testes 
+sizeMin = 3                      #Tamanho minimo de cada teste
+sizeMax = 10                      #Tamanho maximo de cada teste   
 
 #Gerando valores
 lines = []
