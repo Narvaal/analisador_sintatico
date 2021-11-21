@@ -42,7 +42,7 @@ class Analisador:
     def __desfazer(self) -> None:
 
         while True:
-            self.__print__()
+            #self.__print__()
             self.__estado = 'b'
             tempR = self.__L1[-1]
             if tempR in Alfabeto:
@@ -63,9 +63,8 @@ class Analisador:
 
         if Sinicial in self.__L1[-1]:
             if self.__cabeca == 1:
-                print("Fudeu")
-                exit(1)
-                pass
+                self.__estado='t'
+                #print("Fudeu")
         else:
 
             tempR = self.__L1[-1]
@@ -78,23 +77,29 @@ class Analisador:
                 if tempL > 1:
                     for i in range(tempL-1):
                         self.__L2.pop()
-                print("#Regra+1")
+                #print("#Regra+1")
 
                 self.__L1.pop()
                 self.__expansao(Nregra)
             else:
-                print("#Backtrack")
+                #print("#Backtrack")
                 self.__desfazer()
                 self.__deusébom()
-                self.__print__()
+                #self.__print__()
                 pass
 
     def analisar(self) -> None:
         print(self.__cadeia)
         while self.__estado != 't':
-            self.__print__()
+            #self.__print__()
             if self.__L2[-1] == '$':
-                self.__conclusao()
+                if self.__cadeia[self.__cabeca-1] == '$':
+                    self.__conclusao()
+                    return("OK")
+                else:
+                    self.__desfazer()
+                    self.__deusébom()
+                    #return("Deu ruim")
             else:
                 if self.__L2[-1] in Alfabeto:
                     if self.__L2[-1] == self.__cadeia[self.__cabeca-1]:
@@ -107,8 +112,10 @@ class Analisador:
                     else:
                         self.__deusébom()
             #input()
-        self.__print__()
+        #self.__print__()
+
+        return("Fudeu")
 
 
-teste = Analisador("(1+2(")
-teste.analisar()
+#teste = Analisador("(5)3")
+#teste.analisar()
