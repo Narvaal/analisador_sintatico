@@ -32,8 +32,4 @@ dataFrame = pd.DataFrame(
         "Resultado": resultados
     }
 )
-dataFrame.to_excel("testes.xlsx")  
-
-
-
-
+dataFrame.to_excel("testes.xlsx")

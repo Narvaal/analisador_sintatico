@@ -64,7 +64,7 @@ class Analisador:
         if Sinicial in self.__L1[-1]:
             if self.__cabeca == 1:
                 self.__estado='t'
-                #print("Fudeu")
+                #print("Recusada")
         else:
 
             tempR = self.__L1[-1]
@@ -77,29 +77,28 @@ class Analisador:
                 if tempL > 1:
                     for i in range(tempL-1):
                         self.__L2.pop()
-                #print("#Regra+1")
+                #print("Escolhendo nova regra")
 
                 self.__L1.pop()
                 self.__expansao(Nregra)
             else:
-                #print("#Backtrack")
+                #print("Desfazendo escolhas")
                 self.__desfazer()
                 self.__deusébom()
                 #self.__print__()
                 pass
 
     def analisar(self) -> None:
-        print(self.__cadeia)
+        #print(self.__cadeia)
         while self.__estado != 't':
             #self.__print__()
             if self.__L2[-1] == '$':
                 if self.__cadeia[self.__cabeca-1] == '$':
                     self.__conclusao()
-                    return("OK")
+                    return("Aceita")
                 else:
                     self.__desfazer()
                     self.__deusébom()
-                    #return("Deu ruim")
             else:
                 if self.__L2[-1] in Alfabeto:
                     if self.__L2[-1] == self.__cadeia[self.__cabeca-1]:
@@ -114,8 +113,9 @@ class Analisador:
             #input()
         #self.__print__()
 
-        return("Fudeu")
+        return("Recusada")
 
 
-#teste = Analisador("(5)3")
-#teste.analisar()
+#   Exemplo de chamda:
+#   teste = Analisador("(5)3")
+#   teste.analisar()
