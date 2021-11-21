@@ -85,6 +85,7 @@ class Analisador:
             else:
                 print("#Backtrack")
                 self.__desfazer()
+                self.__deusébom()
                 self.__print__()
                 pass
 
@@ -109,5 +110,5 @@ class Analisador:
         self.__print__()
 
 
-teste = Analisador("1+2")
+teste = Analisador("(1+2(")
 teste.analisar()
