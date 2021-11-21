@@ -5,12 +5,12 @@ NaoTerminais = ['I', 'S', 'K', 'T', 'Z', 'F', 'N', 'D']
 
 Sinicial = 'I'
 
-RegrasProducao = {'I': 'S',
-                  'S': "TK",
+RegrasProducao = {'I1': 'S',
+                  'S1': "TK",
                   'K1': "+TK",
                   'K2': "-TK",
                   'K3': '',
-                  'T': "FZ",
+                  'T1': "FZ",
                   'Z1': "*FZ",
                   'Z2': "/FZ",
                   'Z3': '',
