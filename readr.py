@@ -1,4 +1,5 @@
 import pandas as pd
+from analisador import Analisador
 # Básicamente altera a resposta dos resultados escrevendo
 # se aquela combinação de caracteres é ou não valida 
 
@@ -20,6 +21,10 @@ resultados = list(tabela['Resultado'])
 #   else: resultado[i] = "invalido"
 
 
+for i in range(len(testes)):
+    resultados[i] = Analisador(testes[i]).analisar()
+    
+
 #Escrevendo no arquivo testes com os resultados
 dataFrame = pd.DataFrame(
     {
@@ -27,8 +32,4 @@ dataFrame = pd.DataFrame(
         "Resultado": resultados
     }
 )
-dataFrame.to_excel("testes.xlsx")  
-
-
-
-
+dataFrame.to_excel("testes.xlsx")
